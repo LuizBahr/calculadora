@@ -1,0 +1,88 @@
+Explicação do funcionamento da Calculadora Básica
+
+--- Criando HTML
+
+1 - Criando classe principal (fundo)
+
+2 - Criando um h1 para Título da página
+
+3 - Criando uma div onde será montada a Calculadora
+
+        - Título da Calculadora
+        - <p> (paragrafo) onde será impresso o resultado para o usuário
+        - <table> Tabela para criar a estrura
+        - <button> Criar botões dentro da estrutura em tabela criada anteriormente
+         
+        Utilizado colspan="2" para o 0 preencher duas colunas da tabela
+        Utilizado rowspan="2" para o = preencher duas linhas da tabela
+
+
+-- Estilizando
+
+Utilizado link para acessar arquivo style separado do HTML
+
+1 - Classe Fundo
+        - Utilizado background-image linear-gradient para criar um fundo em degrade
+        - Height 100%
+        - color para aplicar a cor nos textos
+        - font-family para aplicar qual fonte utilizada nas escritas
+        - text-align alinhando textos que constam dentro da div para ficarem centralizados
+
+2 - Calculadora
+        - position absolute para preencher somente o espaço dela mesma
+        - background-color aplicar cor de fundo da calculadora
+        - top, left, transform translate(-50%,-50%),para div ficar centralizada no documento.
+        - border-radius para arredondar cantos da div calculadora
+        - padding para distanciar elementos da borda da div
+        - background-color rgba(70, 130, 180, 0.4); para criar transparencia de fundo
+
+3 - Botao
+        - width para informar largura de botões e height para informar altura de botões
+        - font-size informar tamanho de fonte
+        - cursor pointer para mouse mudar para "clique" ao passar encima do botão
+        - background-color para definir cor de fundo dos botões
+        - .botao:hover para definidr dentro desta classe qual cor de fundo quando se passar o mouse utilizando o background-color
+        - criado style dentro do HTML onde está o = e 0 para definir tamanho e altura dos mesmos 
+        - margin para ajustar margens entre os botões (espaçamento entre eles)
+
+4 - Resultado
+        - width, height para definir largura e altura do campo resultado
+        - margin para definifir um espaçamento do conteudo acima
+        - background-color para definir cor do paragrafo
+        - font-size tamanho da fonte
+        - color para definir cor
+
+5 - JavaScript para criar funcionalidade da calculadora
+        - <script  src="javaScript.js"></script> para puxar arquivo JS para o HTML
+        - Em primeiro lugar iremos criar uma função chamada insert
+        - incluido no botão no HTML onclick="insert('')" para chamar a funcao JS
+        - A função estará esperando o parametro "NUM" que será retornado ao clicar no botao
+
+        - Iremos pegar o resultado trazido pelo parametro NUM e colocaremos dentro da id resultado definida para apresentar o resultado dos calculos
+                document.getElementById('resultado').innerHTML = num;
+        
+        - Ao realizar foi visto que ao clicar em um número e em sequencia clicar em outro, ele sobrescrevia o anterior
+
+         var numero = document.getElementById('resultado').innerHTML; 
+         document.getElementById('resultado').innerHTML = numero + num;
+        
+        - Criado onclick="insert('') para demais funcoes + -* /
+
+        - onclick="limpar() para apagar o resultado ao clicar no botao C
+                function limpar() {
+                        document.getElementById('resultado').innerHTML = " ";
+                }
+
+        - apagar resultado um por um da seguinte forma 
+                function apagar() {
+                        var resultado = document.getElementById('resultado').innerHTML;
+                        document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+                }
+        
+        
+
+
+
+        
+
+
